@@ -6,6 +6,9 @@
   <title>금보경 | 서비스 기획자 (PM/PO)</title>
   <link rel="preconnect" href="https://cdn.jsdelivr.net/">
   <link rel="stylesheet" href="./금보경_이력서_files/pretendardvariable.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;800&display=swap">
   <style>
     :root {
       --bg: #ffffff;
@@ -68,8 +71,7 @@
       max-width: 1080px;
       margin: 0 auto;
       padding: 64px 32px;
-      padding-bottom: 70vh;
-      /* 마지막 섹션도 클릭 시 위로 충분히 올라가도록 */
+      padding-bottom: 64px;
     }
 
     /* 기본 정보 카드 (풀사이즈) — 글래스모피즘 */
@@ -690,7 +692,7 @@
     @media (max-width: 880px) {
       .page {
         padding: 32px 20px;
-        padding-bottom: 60vh;
+        padding-bottom: 48px;
       }
 
       .content-grid {
@@ -862,10 +864,97 @@
       transform: translateX(-50%) translateY(0);
     }
 
-    /* 푸터 */
-    .site-footer {
+    /* 마무리(Thank you) 섹션 */
+    .outro {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      min-height: 78vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      padding: 40px 16px 48px;
+      padding: 96px 24px;
+    }
+
+    .outro::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        radial-gradient(38% 46% at 32% 34%, rgba(47, 107, 255, 0.34), transparent 70%),
+        radial-gradient(42% 46% at 70% 28%, rgba(130, 168, 255, 0.34), transparent 70%),
+        radial-gradient(46% 50% at 66% 80%, rgba(160, 120, 255, 0.30), transparent 70%),
+        radial-gradient(42% 46% at 34% 84%, rgba(110, 200, 255, 0.30), transparent 70%);
+    }
+
+    .outro .outro-eyebrow {
+      margin: 0 0 16px;
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(18px, 2.6vw, 30px);
+      font-weight: 400;
+      color: var(--ink-2);
+      letter-spacing: -0.01em;
+    }
+
+    .outro .outro-title {
+      margin: 0;
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(34px, 6vw, 64px);
+      font-weight: 800;
+      line-height: 1.16;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+
+    .outro .outro-title .accent {
+      color: var(--accent);
+    }
+
+    .outro .outro-sub {
+      margin: 48px 0 12px;
+      font-size: 12.5px;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+    }
+
+    .outro .outro-contact {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 14px;
+    }
+
+    .outro .contact-link {
+      font-family: inherit;
+      font-size: 14px;
+      color: var(--ink-2);
+      background: none;
+      border: none;
+      padding: 4px 2px;
+      cursor: pointer;
+      border-bottom: 1px dashed transparent;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .outro .contact-link:hover {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    .outro .outro-divider {
+      color: var(--muted-2);
+    }
+
+    /* 마무리 섹션 내 저작권 (그라데이션 하단) */
+    .outro .outro-copy {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 28px;
+      margin: 0;
       font-size: 12px;
       color: var(--muted-2);
       letter-spacing: 0.02em;
@@ -874,7 +963,7 @@
     @media (max-width: 480px) {
       .page {
         padding: 24px 16px;
-        padding-bottom: 60vh;
+        padding-bottom: 48px;
       }
 
       .hero {
@@ -1494,7 +1583,18 @@
 
   </div>
 
-  <footer class="site-footer">© 2026 Bokee. All rights reserved.</footer>
+  <!-- 마무리(Thank you) 섹션 -->
+  <section class="outro">
+    <p class="outro-eyebrow">No Excuses, Just Progress!</p>
+    <h2 class="outro-title"><span class="accent">Bokee</span> Make It Happen.<br>Thank you!</h2>
+    <p class="outro-sub">저에 대해 더 궁금하다면</p>
+    <div class="outro-contact">
+      <button type="button" class="contact-link" data-copy="bokee0628@gmail.com" data-label="이메일 주소">bokee0628@gmail.com</button>
+      <span class="outro-divider">·</span>
+      <button type="button" class="contact-link" data-copy="010-7544-2523" data-label="전화번호">010-7544-2523</button>
+    </div>
+    <p class="outro-copy">© 2026 Bokee. All rights reserved.</p>
+  </section>
 
   <script>
     const sections = ['work', 'project', 'skill', 'edu', 'award', 'cert']
@@ -1557,7 +1657,7 @@
       ta.remove();
       return Promise.resolve();
     }
-    document.querySelectorAll('.gnb-btn').forEach(btn => {
+    document.querySelectorAll('[data-copy]').forEach(btn => {
       btn.addEventListener('click', () => {
         const text = btn.dataset.copy;
         copyText(text).then(() => {
