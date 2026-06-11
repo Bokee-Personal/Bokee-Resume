@@ -1,13 +1,1356 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bokyeong Geum - IT UI/UX Service Planner Portfolio</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+<!DOCTYPE html>
+<!-- saved from url=(0249)file:///G:/%EB%82%B4%20%EB%93%9C%EB%9D%BC%EC%9D%B4%EB%B8%8C/01.1%20Portfolio/[2026%20-%20%EC%9E%91%EC%97%85%EC%A4%91]/%E2%98%85%EA%B3%B5%EA%B3%A0%20-%20%EC%85%80%EB%A6%AC%EB%A7%A5%EC%8A%A4/%EA%B8%88%EB%B3%B4%EA%B2%BD_%EC%9D%B4%EB%A0%A5%EC%84%9C.html -->
+<html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>금보경 | 서비스 기획자 (PM/PO)</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net/">
+  <link rel="stylesheet" href="./금보경_이력서_files/pretendardvariable.min.css">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --ink: #1a1a1a;
+      --ink-2: #2b2b2b;
+      --muted: #6b7280;
+      --muted-2: #9ca3af;
+      --line: #e5e7eb;
+      --accent: #2f6bff;
+      --chip-bg: #f2f3f5;
+      --chip-ink: #4b5563;
+      --nav-w: 130px;
+      --label-w: 110px;
+    }
 
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.6;
+      font-size: 14px;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    hr {
+      border: 0;
+      border-top: 1px solid var(--line);
+      margin: 48px 0;
+    }
+
+    /* 클릭으로 점프할 때 섹션 윗여백 확보 */
+    section[id] {
+      scroll-margin-top: 24px;
+    }
+
+    /* ─── Layout ──────────────────────────────────────────────── */
+    .page {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 64px 32px;
+      padding-bottom: 70vh;
+      /* 마지막 섹션도 클릭 시 위로 충분히 올라가도록 */
+    }
+
+    /* 기본 정보 카드 (풀사이즈) — 글래스모피즘 */
+    .hero-card {
+      position: relative;
+      border-radius: 24px;
+      padding: 40px;
+      margin-bottom: 48px;
+      overflow: hidden;
+      isolation: isolate;
+      border: 1px solid rgba(255, 255, 255, 0.65);
+      box-shadow: 0 16px 48px rgba(47, 107, 255, 0.16);
+    }
+
+    /* 뒷배경 그라데이션 레이어 */
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -30%;
+      z-index: -2;
+      background:
+        radial-gradient(40% 50% at 12% 18%, rgba(47, 107, 255, 0.75), transparent 70%),
+        radial-gradient(45% 55% at 88% 12%, rgba(130, 168, 255, 0.70), transparent 70%),
+        radial-gradient(50% 55% at 82% 92%, rgba(160, 120, 255, 0.62), transparent 70%),
+        radial-gradient(45% 50% at 20% 95%, rgba(110, 200, 255, 0.58), transparent 70%),
+        linear-gradient(135deg, #eaf0ff 0%, #f3f1ff 100%);
+    }
+
+    /* 프로스트(글래스) 레이어 */
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: rgba(255, 255, 255, 0.45);
+      backdrop-filter: blur(30px) saturate(160%);
+      -webkit-backdrop-filter: blur(30px) saturate(160%);
+    }
+
+    /* 본문: 콘텐츠 + 사이드 네비 */
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr var(--nav-w);
+      gap: 48px;
+    }
+
+    .main {
+      min-width: 0;
+    }
+
+    .nav-col {
+      position: relative;
+    }
+
+    /* ─── Hero ────────────────────────────────────────────────── */
+    .hero {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+      padding-bottom: 28px;
+    }
+
+    .hero h1 {
+      font-size: 38px;
+      font-weight: 800;
+      margin: 0 0 6px;
+      letter-spacing: -0.02em;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hero h1 .en {
+      font-size: 18px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .hero h1 .name-icon {
+      font-size: 22px;
+    }
+
+    .hero .role {
+      font-size: 16px;
+      color: var(--ink-2);
+      margin: 0 0 18px;
+      font-weight: 500;
+    }
+
+    .hero .contact {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .hero .avatar {
+      flex: 0 0 auto;
+      width: 96px;
+      height: 96px;
+      border-radius: 16px;
+      background:
+        radial-gradient(circle at 40% 40%, #1a3dff 0%, #2f6bff 30%, #82a8ff 60%, #d6e4ff 100%);
+      box-shadow: 0 8px 30px rgba(47, 107, 255, 0.25);
+    }
+
+    /* ─── Bio ─────────────────────────────────────────────────── */
+    .bio h2 {
+      font-size: 18px;
+      font-weight: 700;
+      margin: 0 0 18px;
+      line-height: 1.55;
+      letter-spacing: -0.01em;
+    }
+
+    .bio p {
+      margin: 0 0 14px;
+      color: var(--ink-2);
+      font-size: 13.5px;
+      line-height: 1.85;
+    }
+
+    .summary-list {
+      margin: 18px 0 0;
+      padding: 18px 20px;
+      background: rgba(255, 255, 255, 0.45);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .summary-list li {
+      position: relative;
+      padding-left: 18px;
+      margin-bottom: 8px;
+      font-size: 13px;
+      color: var(--ink-2);
+      line-height: 1.75;
+    }
+
+    .summary-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .summary-list li::before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      top: 1px;
+      color: var(--accent);
+      font-size: 11px;
+    }
+
+    /* ─── Section row ─────────────────────────────────────────── */
+    .section {
+      display: grid;
+      grid-template-columns: var(--label-w) 1fr;
+      gap: 32px;
+      margin: 48px 0;
+    }
+
+    .section .label {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ink);
+      padding-top: 4px;
+    }
+
+    .section .body {
+      min-width: 0;
+    }
+
+    /* ─── Item ────────────────────────────────────────────────── */
+    .item {
+      margin-bottom: 42px;
+    }
+
+    .item:last-child {
+      margin-bottom: 0;
+    }
+
+    /* 프로젝트 카드 박스 */
+    #project .item {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 24px 26px;
+      background: #ffffff;
+      margin-bottom: 16px;
+      transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease, padding 0.25s ease;
+    }
+    #project .item:hover {
+      border-color: var(--accent);
+      background: linear-gradient(135deg, #f3f7ff 0%, #e8efff 100%);
+      box-shadow: 0 10px 28px rgba(47, 107, 255, 0.12);
+    }
+    #project .item:last-child {
+      margin-bottom: 0;
+    }
+
+    .item-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 4px;
+    }
+
+    .item-head h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin: 0;
+      letter-spacing: -0.01em;
+    }
+
+    .item-head .period {
+      font-size: 12px;
+      color: var(--muted);
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    .item .sub {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 0 0 12px;
+    }
+
+    .item .position {
+      font-size: 13.5px;
+      color: var(--ink-2);
+      margin: 0 0 14px;
+    }
+
+    .item-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 8px 0 16px;
+    }
+
+    .item-tags .tag {
+      background: #f2f3f5;
+      color: var(--chip-ink);
+      font-size: 11.5px;
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .item ul.bullets {
+      margin: 8px 0 0;
+    }
+
+    .item ul.bullets li {
+      position: relative;
+      padding-left: 14px;
+      margin-bottom: 4px;
+      font-size: 13px;
+      color: var(--ink-2);
+      line-height: 1.75;
+    }
+
+    .item ul.bullets li::before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: var(--muted-2);
+      font-size: 11px;
+    }
+
+    /* Project blocks */
+    .block {
+      margin-top: 18px;
+    }
+
+    .block-title {
+      font-size: 13.5px;
+      font-weight: 700;
+      margin: 0 0 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .block-title.goal::before {
+      content: "🎯";
+    }
+
+    .block-title.result::before {
+      content: "🏆";
+    }
+
+    .block-title.work::before {
+      content: "✅";
+    }
+
+    .block p,
+    .block li {
+      font-size: 13px;
+      color: var(--ink-2);
+      line-height: 1.78;
+    }
+
+    .block p {
+      margin: 0 0 6px;
+    }
+
+    .block ul {
+      margin: 0;
+    }
+
+    .block ul li {
+      position: relative;
+      padding-left: 14px;
+      margin-bottom: 4px;
+    }
+
+    .block ul li::before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: var(--muted-2);
+      font-size: 11px;
+    }
+
+    .block ul ul {
+      margin-top: 2px;
+      margin-bottom: 6px;
+    }
+
+    .block ul ul li {
+      padding-left: 12px;
+      margin-bottom: 2px;
+    }
+
+    .block ul ul li::before {
+      content: "-";
+      color: var(--muted-2);
+    }
+
+    .block .highlight {
+      background: linear-gradient(180deg, transparent 60%, #fff3a8 60%);
+      padding: 0 2px;
+      font-weight: 600;
+    }
+
+    /* 프로젝트 성과 박스 */
+    .block:has(> .block-title.result) {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 18px 20px 16px;
+      background: #fafbfc;
+      margin-top: 20px;
+    }
+    .block:has(> .block-title.result) > .block-title.result {
+      margin-bottom: 10px;
+    }
+
+    .stage-line {
+      font-size: 12px;
+      color: var(--accent);
+      font-weight: 600;
+      margin: 0 0 4px;
+      letter-spacing: 0.02em;
+    }
+
+    /* ─── 프로젝트 테마 필터 ───────────────────────────────────── */
+    .proj-filter {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 22px;
+    }
+
+    .proj-filter-btn {
+      font-family: inherit;
+      font-size: 12.5px;
+      font-weight: 500;
+      padding: 7px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--chip-ink);
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .proj-filter-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .proj-filter-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    /* 필터 매칭 강조 (hover 상태와 동일한 시각 강조) */
+    #project .item.proj-match {
+      border-color: var(--accent);
+      background: linear-gradient(135deg, #f3f7ff 0%, #e8efff 100%);
+      box-shadow: 0 10px 28px rgba(47, 107, 255, 0.16);
+    }
+
+    /* 필터 비매칭 — 아코디언처럼 헤더만 남기고 접힘 */
+    #project .item.proj-collapsed {
+      padding-top: 16px;
+      padding-bottom: 16px;
+      opacity: 0.55;
+      cursor: pointer;
+    }
+    #project .item.proj-collapsed > *:not(.item-head) {
+      display: none;
+    }
+    #project .item.proj-collapsed .item-head {
+      margin-bottom: 0;
+    }
+    #project .item.proj-collapsed:hover {
+      opacity: 1;
+    }
+    #project .item.proj-collapsed .item-head h3::after {
+      content: "  ＋";
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* ─── 자격증 카드 그리드 ─────────────────────────────────────── */
+    #cert .body {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    #cert .item {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 20px 18px;
+      background: #ffffff;
+      margin-bottom: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    #cert .item-head {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2px;
+      margin-bottom: 0;
+    }
+    #cert .item-head h3 {
+      font-size: 14px;
+      line-height: 1.4;
+      letter-spacing: -0.01em;
+    }
+    #cert .item-head .period {
+      font-size: 12px;
+      color: var(--muted);
+    }
+    #cert .item .sub {
+      margin: 0;
+      font-size: 12.5px;
+      color: var(--muted);
+    }
+
+    /* ─── Skill chips ─────────────────────────────────────────── */
+    .chips-group {
+      margin-bottom: 28px;
+    }
+
+    .chips-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .chips-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink-2);
+      margin: 0 0 12px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .chip {
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: var(--chip-bg);
+      color: var(--chip-ink);
+      font-size: 12.5px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    .chip.active {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    /* ─── Side nav ────────────────────────────────────────────── */
+    .sidenav {
+      position: sticky;
+      top: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .sidenav a {
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      color: var(--muted);
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .sidenav a:hover {
+      color: var(--ink);
+    }
+
+    .sidenav a.active {
+      background: #111;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .sidenav .sidenav-top {
+      margin-top: 12px;
+      border: 1px solid var(--line);
+      text-align: center;
+      color: var(--ink-2);
+    }
+
+    .sidenav .sidenav-top:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* ─── Responsive ──────────────────────────────────────────── */
+    @media (max-width: 880px) {
+      .page {
+        padding: 32px 20px;
+        padding-bottom: 60vh;
+      }
+
+      .content-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .hero-card {
+        padding: 28px 22px;
+        margin-bottom: 32px;
+      }
+
+      .nav-col {
+        display: none;
+      }
+
+      .section {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin: 40px 0;
+      }
+
+      .section .label {
+        font-size: 14px;
+        color: var(--muted);
+        padding-top: 0;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      .hero h1 .en {
+        font-size: 15px;
+      }
+
+      .hero .avatar {
+        width: 72px;
+        height: 72px;
+        border-radius: 12px;
+      }
+
+      .bio h2 {
+        font-size: 16px;
+      }
+
+      .item-head {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
+      }
+
+      .item-head .period {
+        font-size: 11.5px;
+      }
+
+      #cert .body {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      hr {
+        margin: 36px 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .page {
+        padding: 24px 16px;
+        padding-bottom: 60vh;
+      }
+
+      .hero {
+        padding-bottom: 20px;
+      }
+
+      .hero h1 {
+        font-size: 24px;
+      }
+
+      .hero .avatar {
+        width: 60px;
+        height: 60px;
+      }
+
+      #cert .body {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body contenteditable="true">
+
+  <!-- ─── Main page ─────────────────────────────────────────────── -->
+  <div class="page">
+
+    <!-- 기본 정보 카드 (풀사이즈) -->
+    <div class="hero-card">
+
+      <!-- Hero -->
+      <section class="hero" id="basic">
+        <div>
+          <h1>금보경 <span class="en">Bokee</span></h1>
+          <p class="role">서비스 기획자 / PM / PO&nbsp; ·&nbsp; 만 3년 4개월&nbsp;</p>
+          <p class="contact">bokee0628@gmail.com · 010-7544-2523</p>
+        </div>
+      </section>
+
+      <!-- Bio -->
+      <section class="bio">
+        <h2>'작지만 치명적인 비효율'을 발견해<br>데이터와 AI·플랫폼으로 시스템화 하는 PM, 금보경입니다.</h2>
+        <p>책상에서 요구사항을 정리하기보다, 현업의 업무 흐름 안으로 직접 들어가 반복 업무와 병목을 찾아냅니다. <br>통신·주거·AI 사업화 등 도메인을 가리지 않고 빠르게 학습해, 데이터로 우선순위를 정하고 문제 정의부터 개발 협업, 릴리즈까지 오너십을 갖고 해결했습니다.<br>최근에는 AI 에이전트와 Workflow로 반복 업무 자체를 자동화하는 방향까지 확장하고 있습니다.</p>
+
+        <ul class="summary-list">
+          <li><strong>[AI Product]</strong> <br>MARS 멀티에이전트 플랫폼을 통해 업무를 구조화하고, 반복 업무를 AI Workflow로 실행할 수 있는 제품 방향을 정의했습니다.</li>
+          <li><strong>[GEO Strategy]</strong> <br>생성형 AI 검색 최적화를 위한 진단·구축·운영 상품 구조, 가격정책을 수립해 AI 기반 신규 사업의 제품화 방향을 설계했습니다.</li>
+          <li><strong>[Data 기반 POC]</strong> <br> 통신사의 요금제 업셀/다운케어 POC를 이끌며 고객 데이터 기반 실험 - 정규화의 스케일업 사이클을 경험했습니다.</li>
+          <li><strong>[Operation Platform]</strong> <br>LG U+ 그로스해킹 BO와 홈닉 Admin 정책 설계를 통해 실무자가 직접 운영할 수 있는 백오피스 시스템 구조를 만들었습니다.</li>
+        </ul>
+      </section>
+    </div>
+    <!-- /기본 정보 카드 -->
+
+    <div class="content-grid">
+      <div class="main">
+
+      <!-- 업무 경험 -->
+      <section class="section" id="work">
+        <div class="label">업무 경험</div>
+        <div class="body">
+          <div class="item">
+            <div class="item-head">
+              <h3>(주)이트라이브</h3>
+              <span class="period">2023.02 – 재직 중<br></span>
+            </div>
+            <p class="position">서비스 기획</p>
+            <p style="font-size:13px;color:var(--ink-2);margin:0 0 10px;line-height:1.75">
+              조직의 반복 업무와 운영 병목을 발견하고, 데이터·운영 플랫폼·AI Workflow로 실행 가능한 제품 구조를 설계합니다.
+            </p>
+            <ul class="bullets">
+              <li>MARS 멀티에이전트 플랫폼 및 GEO 사업화·제품화 기획</li>
+              <li>BO/Admin, 정책 구조, 운영 Workflow 설계 경험</li>
+              <li>실고객 데이터 기반 POC - Validation - Scale-up 경험</li>
+              <li>0 to 1 서비스 런칭 및 B2B2C 운영 개선 경험</li>
+              <li>디자인, 개발, DBA, PMO, 사업부와의 협업</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- 프로젝트 -->
+      <section class="section" id="project">
+        <div class="label">프로젝트</div>
+        <div class="body">
+
+          <div class="proj-filter" role="group" aria-label="프로젝트 테마 필터">
+            <button type="button" class="proj-filter-btn active" data-filter="all">전체</button>
+            <button type="button" class="proj-filter-btn" data-filter="ops">운영 플랫폼·BO/Admin</button>
+            <button type="button" class="proj-filter-btn" data-filter="data">데이터 기반 검증</button>
+            <button type="button" class="proj-filter-btn" data-filter="ai">AI·Workflow</button>
+            <button type="button" class="proj-filter-btn" data-filter="launch">0→1 런칭</button>
+            <button type="button" class="proj-filter-btn" data-filter="b2b2c">B2B2C·정책 모듈화</button>
+          </div>
+
+          <!-- AX Project 1 - MARS -->
+          <div class="item" data-theme="ai">
+            <div class="item-head">
+              <h3>[AX] MARS 멀티에이전트 플랫폼 기획</h3>
+              <span class="period">2025.11 – 진행 중</span>
+            </div>
+            <p class="sub">(주)이트라이브</p>
+            <div class="item-tags">
+              <span class="tag">AI Product</span>
+              <span class="tag">Multi-Agent</span>
+              <span class="tag">AI Workflow</span>
+              <span class="tag">사내 생산성</span>
+            </div>
+
+            <div class="block">
+              <p>요구사항 분석·리서치·진단·코드 생성처럼 사람이 매번 반복하던 업무가 담당자마다 흩어져 있고, AI 도구도 단발성 작업만 처리해 연결된 업무를 이어주지 못했습니다. 이 반복·병목 업무를 AI 에이전트의 조합으로 자동 연결하는 플랫폼을 기획했습니다.</p>
+            </div>
+
+            <div class="block">
+              <p class="block-title result">프로젝트 성과</p>
+              <ul>
+                <li>비개발 직군이 워크플로우만 선택하면 <span class="highlight">자동 실행 → 결과 통합</span>까지 처리되는 사용 구조 정립</li>
+                <li>기존 SI 고객사의 AX 프로젝트에 플랫폼을 연계하는 <b>신규 수익화 방향 설계</b></li>
+              </ul>
+            </div>
+
+            <div class="block">
+              <p class="block-title work">주요 업무</p>
+              <ul>
+                <li>흩어진 반복 업무를 <b>개별 AI 에이전트(Recipe)의 조합</b>으로 자동 실행하는 멀티에이전트 구조 기획</li>
+                <li>비개발 직군도 구조를 이해하고 쓸 수 있도록 <b>개념 모델을 언어화</b><br>(Recipe = 개별 AI 전문가, RecipeBook = 업무 워크플로우 프리셋, PM Agent = 요청을 읽고 에이전트 팀을 구성하는 지휘자)</li>
+                <li>산출물 품질을 보장하는 <b>검증 체계 검토</b> (루브릭 채점 → 형식 검증 → Supervisor 교차검증, 기준 미달 시 자동 재실행)</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- AX Project 2 - GEO -->
+          <div class="item" data-theme="ai">
+            <div class="item-head">
+              <h3>[AX] GEO 진단 방법론 수립 &amp; 사업화</h3>
+              <span class="period">2025.11 – 진행 중</span>
+            </div>
+            <p class="sub">(주)이트라이브 · MARS 플랫폼 위 첫 적용 워크플로우</p>
+            <div class="item-tags">
+              <span class="tag">GEO</span>
+              <span class="tag">AI 검색 최적화</span>
+              <span class="tag">PoC</span>
+              <span class="tag">사업화</span>
+            </div>
+
+            <div class="block">
+              <p>생성형 AI 검색이 확산되며 고객사의 노출 전략이 기존 SEO에서 GEO로 확장되고 있었지만, GEO는 고객에게 설명할 수 있는 서비스로 정리돼 있지 않았습니다. 진단부터 상품화까지 이어지는 구조를 설계했습니다.</p>
+            </div>
+
+            <div class="block">
+              <p class="block-title result">프로젝트 성과</p>
+              <ul>
+                <li>막연했던 GEO를 <span class="highlight">진단 방법론 + 진단·구축·운영 3트랙 상품 구조</span>로 정립해 AI 기반 신규 사업의 제품화 방향 설계</li>
+                <li>MARS 플랫폼 위에서 돌아가는 <b>첫 적용 워크플로우 사례</b>로 연결</li>
+              </ul>
+            </div>
+
+            <div class="block">
+              <p class="block-title work">주요 업무</p>
+              <ul>
+                <li><b>PoC로 테크니컬 GEO 프레임워크 수립</b> — 사이트맵·As-Is HTML·메타/스키마/FAQ 구조를 분석하고 개선 지표를 정의</li>
+                <li><b>삼성화재 GEO 진단을 단독 수행</b>하며 질문세트·응답 데이터·긍부정 분류·SOV를 분석해, 대형 금융사 대상 GEO 진단 방법론을 재사용 가능한 자산으로 정리</li>
+                <li>자사 상품화를 위해 <b>진단·구축·운영 3트랙 상품 구조와 가격정책·업셀 포인트</b> 정리</li>
+                <li>PoC 결과·가격정책·FAQ를 <b>세일즈 콘텐츠로 통합</b>해 고객 접점과 설명 구조 정리</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- LGU+ Project (POC-Validation-Scale up) -->
+          <div class="item" data-theme="ops data">
+            <div class="item-head">
+              <h3>LG U+ 디지털 채널 실시간 고객 데이터 기반 개인화 업셀 캠페인 플랫폼 구축</h3>
+              <span class="period">2025.02 – 2025.12</span>
+            </div>
+            <p class="sub">LG U+ · 기획 기여도 100% · POC → Validation → Scale-up</p>
+            <div class="item-tags">
+              <span class="tag">마케팅</span>
+              <span class="tag">업셀</span>
+              <span class="tag">데이터분석</span>
+              <span class="tag">FO</span>
+              <span class="tag">BO</span>
+            </div>
+
+            <div class="block">
+              <p>외부 마케팅 솔루션의 운영 한계와 고객 이탈 지점을 분석하고, 실시간 고객 데이터 기반 캠페인 로직과 BO/FO 화면을 설계해 POC 성과를 정규 개발 요건으로 연결했습니다.</p>
+            </div>
+
+            <div class="block">
+              <p class="block-title result">프로젝트 성과</p>
+              <ul>
+                <li><strong>[POC]</strong> 추천 요금제 클릭률 <span class="highlight">3배 증가 (11.8% → 35.2%)</span>, 전환율 10.5% →
+                  15.2%</li>
+                <li>추천 요금제 전환 완료율 <span class="highlight">15.2%</span>를 기록하며 실시간 데이터 기반 업셀 시나리오의 유효성 검증</li>
+                <li>혜택 / 정책이 수정되어도 BO 설정만으로 대응 가능한 모듈 구조 설계</li>
+              </ul>
+            </div>
+
+            <div class="block">
+              <p class="block-title work">주요 업무</p>
+              <ul>
+                <li>
+                  <p class="stage-line">[ POC ] 가설 검증 · 실시간 데이터 기반 개인화 마케팅 유효성 검증</p>
+                  <ul>
+                    <li>실시간 데이터(사용량 등) 기반의 '말할거리' 소구가 기존 정적 캠페인 대비 전환율에 미치는 영향 분석 및 가설 검증</li>
+                  </ul>
+                </li>
+                <li>
+                  <p class="stage-line">[ Validation ] 인사이트 도출 · POC 한계점 분석 및 정규화 요건 정의</p>
+                  <ul>
+                    <li>외부 솔루션 의존, 마이크로사이트 이탈, 시나리오 확장성 한계 등 운영 페인포인트 분석</li>
+                    <li>지면별 성공률과 실고객 데이터를 바탕으로 캠페인 모듈 및 BO 시스템 기능 요건 정의</li>
+                  </ul>
+                </li>
+                <li>
+                  <p class="stage-line">[ Scale-up ] 시스템화 · 전사 확산을 위한 캠페인 UX 설계 및 운영 플랫폼 구축</p>
+                  <ul>
+                    <li>검증된 POC 시나리오를 정규 개발 요건으로 전환하고, 지면별 캠페인 우선순위 관리 로직 및 BO 구축</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- LGU+ Growth Hacking -->
+          <div class="item" data-theme="ops data">
+            <div class="item-head">
+              <h3>LG U+ 디지털 채널 그로스해킹 플랫폼 구축 및 공통전시관리 모듈화</h3>
+              <span class="period">2025.01 – 2025.07</span>
+            </div>
+            <p class="sub">LG U+ · 기획 기여도 50% (기획 2명)</p>
+            <div class="item-tags">
+              <span class="tag">전시관리</span>
+              <span class="tag">운영 효율화</span>
+              <span class="tag">A/B 테스트</span>
+              <span class="tag">FO</span>
+              <span class="tag">BO</span>
+            </div>
+            <p style="font-size:13px;color:var(--ink-2);margin:0 0 14px;line-height:1.75">
+              개발자 의존도가 높던 전시 운영 환경을 BO 기반 운영 플랫폼으로 전환해, 사업·마케팅 담당자가 콘텐츠 전시, A/B 테스트, 성과 확인을 직접 수행할 수 있도록 설계했습니다.
+            </p>
+
+            <div class="block">
+              <p class="block-title result">프로젝트 성과</p>
+              <ul>
+                <li>전시 교체 속도 <span class="highlight">약 2주 → 1~2일</span>로 단축, 이벤트 관리 개발 의존도 축소</li>
+                <li>비개발 조직이 직접 콘텐츠 전시, 타겟 설정, A/B 테스트를 운영할 수 있는 BO 권한 체계와 운영 프로세스 구축</li>
+                <li>고객사 서비스 품질평가 <span class="highlight">4.8점 달성 (5점 만점)</span>, 운영 편의성 증대</li>
+              </ul>
+            </div>
+
+            <div class="block">
+              <p class="block-title work">주요 업무</p>
+              <ul>
+                <li>그로스해킹 플랫폼, 공통 전시 모듈 설계 및 기획
+                  <ul>
+                    <li>A/B 테스트 설정, 타겟 고객 지정, 노출 비율 설정, 성과 확인 등 BO 프로세스 설계</li>
+                    <li>사업·마케팅 담당자가 직접 운영 가능한 콘텐츠 모듈 구조와 권한 체계 정의</li>
+                  </ul>
+                </li>
+                <li>기능 설계 및 문서화 체계 수립
+                  <ul>
+                    <li>FO / BO 상세 기획 및 QA 수행 (JIRA, 구글 시트 활용)</li>
+                    <li>IA 작성, 요구사항 정의, UI 공통 가이드 등 문서 체계화</li>
+                  </ul>
+                </li>
+                <li>프로젝트 관리 및 운영 지원
+                  <ul>
+                    <li>사업부 대상 그로스해킹 플랫폼 온보딩 워크샵 진행</li>
+                    <li>콘텐츠 전시 → 실험 → 분석 → 개선 시나리오 정의 및 운영 가이드 제작</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Homeniq Community -->
+          <div class="item" data-theme="ops b2b2c">
+            <div class="item-head">
+              <h3>삼성물산 홈닉(Homeniq) APP · 커뮤니티 시설 예약 서비스 재구축 &amp; 유지 운영</h3>
+              <span class="period">2023.09 – 2024.12</span>
+            </div>
+            <p class="sub">삼성물산 · 기획 기여도 50% (MO 프론트 기획 / 정책 설계 100%)</p>
+            <div class="item-tags">
+              <span class="tag">B2B2C</span>
+              <span class="tag">구조화</span>
+              <span class="tag">운영 효율화</span>
+              <span class="tag">MO</span>
+            </div>
+            <p style="font-size:13px;color:var(--ink-2);margin:0 0 14px;line-height:1.75">
+              21개 시설의 서로 다른 예약·정산·운영 정책을 8개 유형으로 모듈화하고, FO/BO에서 관리 가능한 정책 구조로 재설계해 신규 단지 확장과 운영 안정성을 높였습니다.
+            </p>
+
+            <div class="block">
+              <p class="block-title result">프로젝트 성과</p>
+              <ul>
+                <li>21개 시설의 예약·정산·운영 정책을 <span class="highlight">8개 유형 모듈</span>로 재구성</li>
+                <li>런칭 후 <span class="highlight">3개 신규 현장에 서비스 도입 및 지속 확장</span></li>
+                <li>원베일리 모바일 채널 예약률 AS-IS 대비 <span class="highlight">32% 증가</span></li>
+                <li>현장용 Admin 기능 도입을 통해 관리 업무 표준화 및 운영 자율성 증대</li>
+              </ul>
+            </div>
+
+            <div class="block">
+              <p class="block-title work">주요 업무</p>
+              <ul>
+                <li>운영 정책 및 이해관계자 요구 기반 문제 정의
+                  <ul>
+                    <li>관리소, 입주민, 삼성물산 운영팀의 상충 요구를 예약·정산·권한·취소 정책 변수로 구조화</li>
+                    <li>레거시 DB 및 정책 분석을 통해 TO-BE 방향성 수립</li>
+                  </ul>
+                </li>
+                <li>모바일 서비스 플로우 및 정책 설계
+                  <ul>
+                    <li>운영 / 개발 효율 및 표준화된 사용자 경험을 위한 예약 UI와 정책 모듈 설계</li>
+                    <li>시설 유형별 예약 Flow를 정리하고 FO/BO에서 관리 가능한 정책 구조 정의</li>
+                  </ul>
+                </li>
+                <li>프로젝트 협업 및 런칭 리딩
+                  <ul>
+                    <li>개발, 디자인, PMO 등 다양한 직군과 소통하며 일정 및 우선순위 관리</li>
+                    <li>테스트 시나리오 작성 및 QA를 통해 서비스의 안정적인 런칭 주도</li>
+                  </ul>
+                </li>
+                <li>운영 효율화 및 B2B2C 확장 지원
+                  <ul>
+                    <li>카페테리아 스마트오더, 정산내역 조회 등 다양한 개선 과제 기획</li>
+                    <li>운영 가이드 작성 및 신규 현장 도입 지원을 통해 서비스 안정적 운영 지원</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Homeniq Launch -->
+          <div class="item" data-theme="launch b2b2c">
+            <div class="item-head">
+              <h3>삼성물산 홈닉(Homeniq) APP · 라이프스타일 솔루션 0 to 1 런칭</h3>
+              <span class="period">2023.03 – 2023.08</span>
+            </div>
+            <p class="sub">삼성물산 · 기여도 50% (기획 2명)</p>
+            <div class="item-tags">
+              <span class="tag">플랫폼</span>
+              <span class="tag">APP 런칭</span>
+              <span class="tag">0 to 1</span>
+              <span class="tag">제품 기획</span>
+            </div>
+            <p style="font-size:13px;color:var(--ink-2);margin:0 0 14px;line-height:1.75">
+              주거생활 통합 APP 0 to 1 구축에서 회원가입, 입주예약, 입주민 인증, 개인정보 라이프사이클을 설계하고 iOS/AOS 심사 Reject 없이 초기 런칭을 지원했습니다.
+            </p>
+
+            <div class="block">
+              <p class="block-title result">프로젝트 성과</p>
+              <ul>
+                <li>1차 런칭 일정 내 APP 출시, iOS / AOS 스토어 심사 <span class="highlight">Reject 없이</span> 초기 런칭 완료</li>
+                <li>초기 사용자 <span class="highlight">70% 이상</span>이 가입 1주일 내 Key Action 실행 (입주예약 / 입주민 인증)</li>
+                <li>Samsung IT Innovation Awards · ICT AWARD 수상</li>
+              </ul>
+            </div>
+
+            <div class="block">
+              <p class="block-title work">주요 업무</p>
+              <ul>
+                <li>회원 온보딩 프로세스 설계 — UX 이탈 위험 구간 최소화
+                  <ul>
+                    <li>회원가입, 입주 예약, 입주민 인증 흐름 분기 축소</li>
+                    <li>회원 유형, 세대 인증, 멤버십, 개인정보 정책 설계</li>
+                  </ul>
+                </li>
+                <li>사용자 개인정보 라이프사이클 데이터 플로우 구조화</li>
+                <li>홈닉 멤버십 서비스 설계
+                  <ul>
+                    <li>삼성카드 - 홈닉 CI 연동 프로세스 정의</li>
+                    <li>포인트 적립 시나리오 설계</li>
+                  </ul>
+                </li>
+                <li>서비스 운영 지원 체계 구축
+                  <ul>
+                    <li>약관 갱신 프로세스, 가입 / 인증 흐름 분기 축소 및 오류 재시도 UX 설계</li>
+                  </ul>
+                </li>
+                <li>스토어 심사 체크리스트 선제 점검, Reject 요소 사전 제거</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- 전문 분야 -->
+      <section class="section" id="skill">
+        <div class="label">전문 분야</div>
+        <div class="body">
+
+          <div class="chips-group">
+            <p class="chips-title">스킬</p>
+            <div class="chips">
+              <span class="chip active">AI Workflow</span>
+              <span class="chip active">운영 플랫폼 설계</span>
+              <span class="chip active">데이터 기반 의사결정</span>
+            </div>
+            <div class="chips" style="margin-top:10px">
+              <span class="chip">Multi-Agent Product</span>
+              <span class="chip">RecipeBook / Workflow Design</span>
+              <span class="chip">GEO Strategy</span>
+              <span class="chip">BO / Admin 기획</span>
+              <span class="chip">실무자 Pain Point 발굴</span>
+              <span class="chip">데이터 기반 POC</span>
+              <span class="chip">0 to 1 런칭</span>
+              <span class="chip">B2B2C</span>
+              <span class="chip">A/B 테스트</span>
+              <span class="chip">Jira 기반 QA / 운영</span>
+              <span class="chip">SQL</span>
+              <span class="chip">GA4</span>
+              <span class="chip">Figma</span>
+              <span class="chip">Notion</span>
+              <span class="chip">Slack</span>
+            </div>
+          </div>
+
+          <div class="chips-group">
+            <p class="chips-title">산업 지식</p>
+            <div class="chips">
+              <span class="chip">통신 · SI</span>
+              <span class="chip">AI 사업화</span>
+              <span class="chip">라이프스타일 · 주거</span>
+              <span class="chip">B2B2C 플랫폼</span>
+              <span class="chip">마케팅 캠페인</span>
+              <span class="chip">커머스 전시관리</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- 학력 -->
+      <section class="section" id="edu">
+        <div class="label">학력</div>
+        <div class="body">
+
+          <div class="item">
+            <div class="item-head">
+              <h3>국가평생교육진흥원 학점은행</h3>
+              <span class="period">2019.12 – 2023.08</span>
+            </div>
+            <p class="sub">경영학과 (학사)</p>
+          </div>
+
+          <div class="item">
+            <div class="item-head">
+              <h3>계원예술대학교</h3>
+              <span class="period">2021.03 – 2023.02</span>
+            </div>
+            <p class="sub">디지털미디어디자인과 · 기획 세부전공</p>
+          </div>
+
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- 수상 및 활동 -->
+      <section class="section" id="award">
+        <div class="label">수상 및 활동</div>
+        <div class="body">
+
+          <div class="item">
+            <div class="item-head">
+              <h3>ICT AWARD - 디지털 서비스혁신 부문 그랑프리</h3>
+              <span class="period">2024</span>
+            </div>
+            <p class="sub">한국정보과학진흥협회</p>
+            <p class="sub">삼성물산 라이프스타일 통합 솔루션 '홈닉'</p>
+          </div>
+
+          <div class="item">
+            <div class="item-head">
+              <h3>Samsung IT Innovation Awards - 대상</h3>
+              <span class="period">2023</span>
+            </div>
+            <p class="sub">삼성 SDS</p>
+            <p class="sub">삼성물산 라이프스타일 통합 솔루션 '홈닉'</p>
+          </div>
+
+          <div class="item">
+            <div class="item-head">
+              <h3>계원예술대학교 디지털미디어디자인과 · 졸업작품 학과 '최우수상' · 'PT 우수상'</h3>
+              <span class="period">2022</span>
+            </div>
+            <p class="sub">계원예술대학교</p>
+            <p class="sub">말·언어장애 아동을 위한 AAC 솔루션 '키닥(KIDAAC)'</p>
+          </div>
+
+          <div class="item">
+            <div class="item-head">
+              <h3>커뮤니케이션 디자인 국제 공모전 - 우수상</h3>
+              <span class="period">2022</span>
+            </div>
+            <p class="sub">한국커뮤니케이션 디자인 협회</p>
+            <p class="sub">착한소비 큐레이션 플랫폼 '미닝월렛'</p>
+          </div>
+
+          <div class="item">
+            <div class="item-head">
+              <h3>커뮤니케이션 디자인 국제 공모전 - 특선</h3>
+              <span class="period">2022</span>
+            </div>
+            <p class="sub">한국커뮤니케이션 디자인 협회</p>
+            <p class="sub">플라스틱 프리 포장 전문 서비스 '캐리아웃'</p>
+          </div>
+
+        </div>
+      </section>
+
+      <hr>
+
+      <!-- 수료 및 자격증 -->
+      <section class="section" id="cert">
+        <div class="label">수료 및 자격증</div>
+        <div class="body">
+
+          <div class="item">
+            <div class="item-head">
+              <h3>데이터분석 준전문가 (ADsP)</h3>
+              <span class="period">2025</span>
+            </div>
+            <p class="sub">한국데이터산업진흥원</p>
+          </div>
+
+          <div class="item">
+            <div class="item-head">
+              <h3>SQL 개발자 (SQLD)</h3>
+              <span class="period">2024</span>
+            </div>
+            <p class="sub">한국데이터산업진흥원</p>
+          </div>
+
+          <div class="item">
+            <div class="item-head">
+              <h3>Google Analytics Certification</h3>
+              <span class="period">2024</span>
+            </div>
+            <p class="sub">Google Analytics Academy</p>
+          </div>
+
+        </div>
+      </section>
+    </div>
+
+    <!-- Right nav -->
+    <aside class="nav-col">
+      <nav class="sidenav">
+        <a href="#work">업무 경험</a>
+        <a href="#project">프로젝트</a>
+        <a href="#skill">전문 분야</a>
+        <a href="#edu">학력</a>
+        <a href="#award">수상 및 활동</a>
+        <a href="#cert">수료 및 자격증</a>
+        <a href="#top" class="sidenav-top">↑ 맨 위로</a>
+      </nav>
+    </aside>
+
+    </div>
+    <!-- /content-grid -->
+
+  </div>
+
+  <script>
+    const sections = ['work', 'project', 'skill', 'edu', 'award', 'cert']
+      .map(id => document.getElementById(id));
+    const links = document.querySelectorAll('.sidenav a');
+    const linkMap = {};
+    const frag = a => (a.getAttribute('href').split('#')[1] || '');
+    links.forEach(a => { linkMap[frag(a)] = a; });
+
+    function onScroll() {
+      const scrollY = window.scrollY + 80;
+      // 페이지 끝에 닿으면 마지막 섹션을 active로
+      const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+      let currentId;
+      if (atBottom) {
+        currentId = sections[sections.length - 1].id;
+      } else {
+        currentId = sections[0].id;
+        for (const s of sections) {
+          if (s.offsetTop <= scrollY) currentId = s.id;
+        }
+      }
+      links.forEach(a => a.classList.remove('active'));
+      if (linkMap[currentId]) linkMap[currentId].classList.add('active');
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    links.forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const id = frag(a);
+        if (id === 'top') {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          return;
+        }
+        const el = document.getElementById(id);
+        if (!el) return;
+        const targetTop = Math.max(0, el.getBoundingClientRect().top + window.scrollY - 24);
+        window.scrollTo({ top: targetTop, behavior: 'smooth' });
+      });
+    });
+
+    // 프로젝트 테마 필터 — 클릭 시 매칭 프로젝트 강조 + 첫 매칭으로 스크롤
+    const filterBtns = document.querySelectorAll('.proj-filter-btn');
+    const projItems = document.querySelectorAll('#project .item');
+    const allBtn = document.querySelector('.proj-filter-btn[data-filter="all"]');
+
+    function resetItems() {
+      projItems.forEach(it => it.classList.remove('proj-match', 'proj-collapsed'));
+    }
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter;
+        const wasActive = btn.classList.contains('active');
+        filterBtns.forEach(b => b.classList.remove('active'));
+
+        // '전체' 클릭 또는 이미 활성화된 태그 재클릭 → 전체 펼침 복원
+        if (filter === 'all' || wasActive) {
+          allBtn.classList.add('active');
+          resetItems();
+          return;
+        }
+
+        btn.classList.add('active');
+        let first = null;
+        projItems.forEach(it => {
+          const themes = (it.dataset.theme || '').split(' ');
+          if (themes.includes(filter)) {
+            it.classList.add('proj-match');
+            it.classList.remove('proj-collapsed');
+            if (!first) first = it;
+          } else {
+            it.classList.remove('proj-match');
+            it.classList.add('proj-collapsed');
+          }
+        });
+        if (first) {
+          const top = Math.max(0, first.getBoundingClientRect().top + window.scrollY - 24);
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+
+    // 접힌 프로젝트 클릭 시 개별 펼치기 (아코디언)
+    projItems.forEach(it => {
+      it.addEventListener('click', () => {
+        if (it.classList.contains('proj-collapsed')) {
+          it.classList.remove('proj-collapsed');
+        }
+      });
+    });
+  </script>
+
+
+
+
+</body></html>
