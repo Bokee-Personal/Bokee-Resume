@@ -192,36 +192,79 @@
       line-height: 1.85;
     }
 
-    .summary-list {
-      margin: 18px 0 0;
-      padding: 18px 20px;
-      background: rgba(255, 255, 255, 0.45);
+    /* Bio 요약: 좌(경험 칩) / 우(캐릭터 카드) 2분할 */
+    .bio-summary {
+      display: grid;
+      grid-template-columns: 0.9fr 1.6fr;
+      gap: 24px;
+      margin: 22px 0 0;
+      align-items: start;
+    }
+
+    .summary-label {
+      margin: 0 0 10px;
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
+
+    /* 경험 키워드 칩 (세로 정렬) */
+    .exp-chips {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .exp-chips .exp-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--ink);
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(47, 107, 255, 0.25);
+    }
+
+    /* 캐릭터 카드 (세로 정렬, 각 카드 = 키워드 > 설명) */
+    .char-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .char-cards .char-card {
+      padding: 14px 16px;
       border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.6);
+      background: rgba(255, 255, 255, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.65);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
     }
 
-    .summary-list li {
-      position: relative;
-      padding-left: 18px;
-      margin-bottom: 8px;
+    .char-cards .char-key {
+      margin: 0 0 3px;
       font-size: 13px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .char-cards .char-desc {
+      margin: 0;
+      font-size: 12.5px;
       color: var(--ink-2);
-      line-height: 1.75;
+      line-height: 1.65;
     }
 
-    .summary-list li:last-child {
-      margin-bottom: 0;
-    }
-
-    .summary-list li::before {
-      content: "▸";
-      position: absolute;
-      left: 0;
-      top: 1px;
-      color: var(--accent);
-      font-size: 11px;
+    @media (max-width: 880px) {
+      .bio-summary {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
     }
 
     /* ─── Section row ─────────────────────────────────────────── */
@@ -607,7 +650,7 @@
     /* ─── Side nav ────────────────────────────────────────────── */
     .sidenav {
       position: sticky;
-      top: 32px;
+      top: 76px;
       display: flex;
       flex-direction: column;
       gap: 4px;
@@ -664,6 +707,14 @@
         display: none;
       }
 
+      .gnb {
+        padding: 12px 20px;
+      }
+
+      .gnb .gnb-tag {
+        display: none;
+      }
+
       .section {
         grid-template-columns: 1fr;
         gap: 16px;
@@ -713,6 +764,113 @@
       }
     }
 
+    /* 스크롤 시 상단 고정 GNB */
+    .gnb {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 11px 40px;
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(16px) saturate(160%);
+      -webkit-backdrop-filter: blur(16px) saturate(160%);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      transform: translateY(-100%);
+      transition: transform 0.3s ease;
+    }
+
+    .gnb.visible {
+      transform: translateY(0);
+    }
+
+    .gnb .gnb-name {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--ink);
+      white-space: nowrap;
+      flex: 0 0 auto;
+    }
+
+    .gnb .gnb-name .gnb-role {
+      margin-left: 7px;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .gnb .gnb-tag {
+      flex: 1 1 auto;
+      min-width: 0;
+      font-size: 12.5px;
+      color: var(--muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .gnb .gnb-cta {
+      flex: 0 0 auto;
+      display: flex;
+      gap: 8px;
+    }
+
+    .gnb .gnb-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent);
+      background: rgba(47, 107, 255, 0.08);
+      border: 1px solid rgba(47, 107, 255, 0.3);
+      border-radius: 999px;
+      padding: 7px 13px;
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .gnb .gnb-btn:hover {
+      background: rgba(47, 107, 255, 0.15);
+      border-color: var(--accent);
+    }
+
+    /* 복사 완료 스낵바 */
+    .snackbar {
+      position: fixed;
+      left: 50%;
+      bottom: 32px;
+      transform: translateX(-50%) translateY(20px);
+      z-index: 200;
+      padding: 12px 20px;
+      background: rgba(17, 17, 17, 0.92);
+      color: #fff;
+      font-size: 13px;
+      border-radius: 10px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    .snackbar.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* 푸터 */
+    .site-footer {
+      text-align: center;
+      padding: 40px 16px 48px;
+      font-size: 12px;
+      color: var(--muted-2);
+      letter-spacing: 0.02em;
+    }
+
     @media (max-width: 480px) {
       .page {
         padding: 24px 16px;
@@ -741,6 +899,19 @@
 
 <body>
 
+  <!-- 스크롤 시 상단 고정 GNB -->
+  <header class="gnb" id="gnb">
+    <span class="gnb-name">금보경<span class="gnb-role">PM · PO</span></span>
+    <span class="gnb-tag">'작지만 치명적인 비효율'을 발견해 데이터와 AI·플랫폼으로 시스템화하는 PM</span>
+    <div class="gnb-cta">
+      <button type="button" class="gnb-btn" data-copy="bokee0628@gmail.com" data-label="이메일 주소">✉ 이메일</button>
+      <button type="button" class="gnb-btn" data-copy="010-7544-2523" data-label="전화번호">☎ 전화</button>
+    </div>
+  </header>
+
+  <!-- 복사 완료 스낵바 -->
+  <div class="snackbar" id="snackbar" role="status" aria-live="polite"></div>
+
   <!-- ─── Main page ─────────────────────────────────────────────── -->
   <div class="page">
 
@@ -759,14 +930,35 @@
       <!-- Bio -->
       <section class="bio">
         <h2>'작지만 치명적인 비효율'을 발견해<br>데이터와 AI·플랫폼으로 시스템화 하는 PM, 금보경입니다.</h2>
-        <p>책상에서 요구사항을 정리하기보다, 현업의 업무 흐름 안으로 직접 들어가 반복 업무와 병목을 찾아냅니다. <br>통신·주거·AI 사업화 등 도메인을 가리지 않고 빠르게 학습해, 데이터로 우선순위를 정하고 문제 정의부터 개발 협업, 릴리즈까지 오너십을 갖고 해결했습니다.<br>최근에는 AI 에이전트와 Workflow로 반복 업무 자체를 자동화하는 방향까지 확장하고 있습니다.</p>
+        <p>현업의 흐름 속에서 실무자의 페인 포인트(Pain-point)를 가장 먼저 정의하고, 복잡한 운영 정책을 모듈화해 효율적인 백오피스 구조를 만드는 데 강점이 있습니다.<br>데이터 기반의 가설 검증부터 AI 워크플로우를 활용한 프로세스 자동화까지, 조직의 실행력을 높이기 위해 새로운 기술을 기획에 어떻게 접목할지 고민하고 실행해 왔습니다.<br>단순한 기능 명세를 넘어 실무자의 공수를 획기적으로 줄이는 AI 네이티브 기반의 탄탄한 플랫폼을 구축해, 비즈니스의 빠른 스케일업(Scale-up)을 뒷받침하겠습니다.</p>
 
-        <ul class="summary-list">
-          <li><strong>[AI Product]</strong> <br>MARS 멀티에이전트 플랫폼을 통해 업무를 구조화하고, 반복 업무를 AI Workflow로 실행할 수 있는 제품 방향을 정의했습니다.</li>
-          <li><strong>[GEO Strategy]</strong> <br>생성형 AI 검색 최적화를 위한 진단·구축·운영 상품 구조, 가격정책을 수립해 AI 기반 신규 사업의 제품화 방향을 설계했습니다.</li>
-          <li><strong>[Data 기반 POC]</strong> <br> 통신사의 요금제 업셀/다운케어 POC를 이끌며 고객 데이터 기반 실험 - 정규화의 스케일업 사이클을 경험했습니다.</li>
-          <li><strong>[Operation Platform]</strong> <br>LG U+ 그로스해킹 BO와 홈닉 Admin 정책 설계를 통해 실무자가 직접 운영할 수 있는 백오피스 시스템 구조를 만들었습니다.</li>
-        </ul>
+        <div class="bio-summary">
+          <div class="exp-col">
+            <p class="summary-label">경험 키워드</p>
+            <div class="exp-chips">
+              <span class="exp-chip">🤖 AI 네이티브 제품 기획</span>
+              <span class="exp-chip">🚀 데이터 기반 POC 리드</span>
+              <span class="exp-chip">🤝 B2B2C 운영 개선</span>
+            </div>
+          </div>
+          <div class="char-col">
+            <p class="summary-label">강점 &amp; 성향</p>
+            <div class="char-cards">
+              <div class="char-card">
+                <p class="char-key">✅ 고객 접점 경험 기반의 커리어 전환</p>
+                <p class="char-desc">SPA 브랜드 매장 영업/CS 현장의 생생한 경험을 바탕으로, 고객의 목소리를 제품 기획에 가장 빠르게 연결합니다.</p>
+              </div>
+              <div class="char-card">
+                <p class="char-key">🏃 성장 지향</p>
+                <p class="char-desc">모든 도전을 배움의 기회로 삼아 주저 없이 익히고 발전합니다.</p>
+              </div>
+              <div class="char-card">
+                <p class="char-key">🍀 단단한 소통</p>
+                <p class="char-desc">진심을 담아 따뜻하지만 단단하게 협업합니다.</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
     </div>
     <!-- /기본 정보 카드 -->
@@ -888,7 +1080,7 @@
 
             <div class="proj-links">
               <a href="https://geo.etribe.co.kr/" target="_blank" rel="noopener noreferrer">GEO 소개 페이지 (직접 Vibe Coding 제작)<span class="link-arrow">↗</span></a>
-              <a href="https://ditoday.com/20%eb%85%84-%ec%b0%a8-%eb%94%94%ec%a7%80%ed%84%b8-%ec%97%90%ec%9d%b4%ec%a0%84%ec%8b%9c%ec%9d%98-geo-%ed%94%8c%eb%9e%ab%ed%8f%bc%ec%9d%80-%eb%ac%b4%ec%97%87%ec%9d%b4-%eb%8b%a4%eb%a5%bc%ea%b9%8c/" target="_blank" rel="noopener noreferrer">DI Today 인터뷰 기사<span class="link-arrow">↗</span></a>
+              <a href="https://ditoday.com/20%eb%85%84-%ec%b0%a8-%eb%94%94%ec%a7%80%ed%84%b8-%ec%97%90%ec%9d%b4%ec%a0%84%ec%8b%9c%ec%9d%98-geo-%ed%94%8c%eb%9e%ab%ed%8f%bc%ec%9d%80-%eb%ac%b4%ec%97%87%ec%9d%b4-%eb%8b%a4%eb%a5%bc%ea%b9%8c/" target="_blank" rel="noopener noreferrer">GEO 플랫폼 개발팀 인터뷰<span class="link-arrow">↗</span></a>
             </div>
           </div>
 
@@ -1218,6 +1410,10 @@
             </div>
             <p class="sub">계원예술대학교</p>
             <p class="sub">말·언어장애 아동을 위한 AAC 솔루션 '키닥(KIDAAC)'</p>
+            <div class="proj-links">
+              <a href="https://youtu.be/8MKrfJvTidw?si=j7FhXh_h8wxd8qsK" target="_blank" rel="noopener noreferrer">서비스 소개 영상<span class="link-arrow">↗</span></a>
+              <a href="https://readymag.website/KIDAAC/team2521/" target="_blank" rel="noopener noreferrer">서비스 소개 웹사이트<span class="link-arrow">↗</span></a>
+            </div>
           </div>
 
           <div class="item">
@@ -1236,6 +1432,10 @@
             </div>
             <p class="sub">한국커뮤니케이션 디자인 협회</p>
             <p class="sub">플라스틱 프리 포장 전문 서비스 '캐리아웃'</p>
+            <div class="proj-links">
+              <a href="https://youtu.be/Sp9LhQw3J2c?si=erYKixC6Ts3BEczv" target="_blank" rel="noopener noreferrer">서비스 소개 영상<span class="link-arrow">↗</span></a>
+              <a href="https://readymag.website/weng/folio/w_carryout/" target="_blank" rel="noopener noreferrer">서비스 소개 웹사이트<span class="link-arrow">↗</span></a>
+            </div>
           </div>
 
         </div>
@@ -1294,6 +1494,8 @@
 
   </div>
 
+  <footer class="site-footer">© 2026 Bokee. All rights reserved.</footer>
+
   <script>
     const sections = ['work', 'project', 'skill', 'edu', 'award', 'cert']
       .map(id => document.getElementById(id));
@@ -1320,6 +1522,49 @@
     }
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
+
+    // 기본정보 카드가 상단을 지나면 고정 GNB 노출
+    const gnb = document.getElementById('gnb');
+    const heroCard = document.querySelector('.hero-card');
+    function onGnb() {
+      if (heroCard.getBoundingClientRect().bottom < 8) gnb.classList.add('visible');
+      else gnb.classList.remove('visible');
+    }
+    window.addEventListener('scroll', onGnb, { passive: true });
+    onGnb();
+
+    // GNB 연락처 복사 + 스낵바
+    const snackbar = document.getElementById('snackbar');
+    let snackTimer;
+    function showSnack(msg) {
+      snackbar.textContent = msg;
+      snackbar.classList.add('show');
+      clearTimeout(snackTimer);
+      snackTimer = setTimeout(() => snackbar.classList.remove('show'), 1800);
+    }
+    function copyText(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        return navigator.clipboard.writeText(text);
+      }
+      // file:// 등 비보안 컨텍스트 폴백
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      ta.remove();
+      return Promise.resolve();
+    }
+    document.querySelectorAll('.gnb-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const text = btn.dataset.copy;
+        copyText(text).then(() => {
+          showSnack(`${btn.dataset.label} 복사됨 · ${text}`);
+        });
+      });
+    });
 
     links.forEach(a => {
       a.addEventListener('click', e => {
