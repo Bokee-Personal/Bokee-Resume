@@ -319,6 +319,39 @@
       border-radius: 999px;
     }
 
+    /* 프로젝트 외부 링크 */
+    .proj-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .proj-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      padding: 6px 12px;
+      border: 1px solid rgba(47, 107, 255, 0.3);
+      border-radius: 999px;
+      background: rgba(47, 107, 255, 0.06);
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .proj-links a:hover {
+      background: rgba(47, 107, 255, 0.12);
+      border-color: var(--accent);
+    }
+
+    .proj-links a .link-arrow {
+      font-size: 11px;
+      opacity: 0.7;
+    }
+
     .item ul.bullets {
       margin: 8px 0 0;
     }
@@ -706,7 +739,7 @@
   </style>
 </head>
 
-<body contenteditable="true">
+<body>
 
   <!-- ─── Main page ─────────────────────────────────────────────── -->
   <div class="page">
@@ -851,6 +884,11 @@
                 <li>자사 상품화를 위해 <b>진단·구축·운영 3트랙 상품 구조와 가격정책·업셀 포인트</b> 정리</li>
                 <li>PoC 결과·가격정책·FAQ를 <b>세일즈 콘텐츠로 통합</b>해 고객 접점과 설명 구조 정리</li>
               </ul>
+            </div>
+
+            <div class="proj-links">
+              <a href="https://geo.etribe.co.kr/" target="_blank" rel="noopener noreferrer">GEO 소개 페이지 (직접 Vibe Coding 제작)<span class="link-arrow">↗</span></a>
+              <a href="https://ditoday.com/20%eb%85%84-%ec%b0%a8-%eb%94%94%ec%a7%80%ed%84%b8-%ec%97%90%ec%9d%b4%ec%a0%84%ec%8b%9c%ec%9d%98-geo-%ed%94%8c%eb%9e%ab%ed%8f%bc%ec%9d%80-%eb%ac%b4%ec%97%87%ec%9d%b4-%eb%8b%a4%eb%a5%bc%ea%b9%8c/" target="_blank" rel="noopener noreferrer">DI Today 인터뷰 기사<span class="link-arrow">↗</span></a>
             </div>
           </div>
 
